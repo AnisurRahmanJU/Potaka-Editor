@@ -1,7 +1,7 @@
 # পতাকা ইডিটর 
 > My Potaka Editor is implemented from [Potaka](https://www.potaka.io/)
 
-> My Potaka Editor Demo - https://anisurrahmanju.github.io/Potaka-Editor/
+> My Potaka Editor Demo - [Try it](https://anisurrahmanju.github.io/Potaka-Editor/)
 
 ## Potaka In News
 ### English News
