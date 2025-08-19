@@ -60,6 +60,3 @@
 দেখাও("বৃহত্তম নাস্বার টি হল:" + বড়_নাম্বার );
 ```
 
-### রেফারেন্স
-* http://c.howtocode.com.bd/functions.html
-* http://cpbook.subeen.com/2011/09/function-programming-book.html
