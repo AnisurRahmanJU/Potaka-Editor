@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>পতাকা ইডিটর()</title>
+	<link rel="canonical" href="index.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="potaka.io পতাকা, কোড লিখার জন্য থাকছে কোড হাইলাইটিং সহ একটি চমৎকার কোড এডিটর, রয়েছে বিল্ট-ইন ফনেটিক বাংলা (অভ্র) লেখার সুবিধা । ..."/>
+<meta name="keywords" content="কোড এডিটর,পতাকা,বাংলা,প্রোগ্রামিং,ল্যাঙ্গুয়েজ,টিউটোরিয়াল">
+<meta name="author" content="Ikrum Hossain">
+<meta name="robots" content="noodp"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="পতাকা কোড এডিটর"/>
+<meta property="og:description" content="potaka.io পতাকা, কোড লিখার জন্য থাকছে কোড হাইলাইটিং সহ একটি চমৎকার কোড এডিটর, রয়েছে বিল্ট-ইন ফনেটিক বাংলা (অভ্র) লেখার সুবিধা । ..."/>
+<meta property="og:url" content="index.html"/>
+<meta property="og:site_name" content="পতাকা()"/>
+<meta property="article:author" content="http://facebook.com/ikrum"/>
+<meta property="article:tag" content="কোড এডিটর"/>
+<meta property="article:section" content="কোড এডিটর"/>
+<meta property="article:published_time" content="2016-09-19T00:00:00+06:00"/>
+<meta property="article:modified_time" content="2016-09-20T00:00:00+06:00"/>
+<meta property="og:updated_time" content="2016-09-20T00:00:00+06:00"/>
+<meta property="og:image" content="statics/assets/images/editor.banner.jpg"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:description" content="potaka.io পতাকা, কোড লিখার জন্য থাকছে কোড হাইলাইটিং সহ একটি চমৎকার কোড এডিটর, রয়েছে বিল্ট-ইন ফনেটিক বাংলা (অভ্র) লেখার সুবিধা । ..."/>
+<meta name="twitter:title" content="পতাকা কোড এডিটর"/>
+<meta name="twitter:image" content="statics/assets/images/editor.banner.jpg"/>
+<meta name="twitter:creator" content="@ikrum_bd"/>
+<!-- Facebook Pixel Code -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','../connect.facebook.net/en_US/fbevents.js');fbq('init','288045051653112',{em:'insert_email_variable'});fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="tr-id-288045051653112-ev-PageView-noscript-1.jpg"/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+	<link rel="stylesheet" href="statics/assets/css/A.editor.d903c358.css.pagespeed.cf.sRv6tiekBH.css">
+
+<style>
+/* Basic Dark Theme Colors */
+:root {
+    --bg-primary: #1e1e1e;
+    --bg-secondary: #252526;
+    --text-color: #d4d4d4;
+    --accent-color: #007acc;
+    --border-color: #3e3e3e;
+    --input-bg: #3c3c3c;
+    --hover-bg: #333;
+    --button-bg: #4a4a4a;
+    --button-hover-bg: #5a5a5a;
+    --run-button-bg: #007acc;
+    --run-button-hover-bg: #0063a5;
+    --clear-button-bg: #cc4d4d;
+    --clear-button-hover-bg: #a33b3b;
+    --tab-inactive: #383838;
+    --tab-active: #1e1e1e;
+}
+
+/* General Body and Container Styling */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header and Navigation */
+h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 2em;
+}
+
+.beta {
+    display: inline-block;
+    background-color: #ff9800;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.menu li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--accent-color);
+}
+
+/* Editor and Output Areas */
+.editorButtons {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.editorButtons .seven.columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editorButtons .five.columns {
+    text-align: right;
+}
+
+.code-area, #output-area {
+    background-color: var(--bg-secondary);
+    color: #d4d4d4;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 15px;
+    font-family: "Fira Code", "Consolas", "Monaco", monospace;
+    font-size: 14px;
+    resize: none;
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+.code-area {
+    width: 100% !important;
+    height: 450px;
+    box-sizing: border-box;
+}
+
+#output-area {
+    min-height: 450px;
+    box-sizing: border-box;
+}
+
+/* Buttons */
+button {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.btn-run {
+    background-color: var(--run-button-bg);
+    border: 1px solid var(--run-button-bg);
+    color: #fff;
+    margin-right: 10px;
+}
+
+.btn-run:hover {
+    background-color: var(--run-button-hover-bg);
+}
+
+.btn-clear {
+    background-color: var(--clear-button-bg);
+    border: 1px solid var(--clear-button-bg);
+    color: #fff;
+}
+
+.btn-clear:hover {
+    background-color: var(--clear-button-hover-bg);
+}
+
+/* Keyboard/IME Box */
+.keyboard-box {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 0.9em;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.keyboard-box:hover {
+    background-color: var(--hover-bg);
+}
+
+.keyboard-box img {
+    margin-right: 5px;
+    filter: invert(1);
+}
+
+/* Hint Box (Tabbed UI) */
+#hint-box {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.tab-nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.tab-nav li {
+    margin-right: 5px;
+}
+
+.tab-nav .button {
+    background-color: var(--tab-inactive);
+    color: var(--text-color);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px 4px 0 0;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.tab-nav .button.active {
+    background-color: var(--tab-active);
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 6px;
+}
+
+.tab-nav .button:hover {
+    background-color: var(--hover-bg);
+}
+
+.tab-content {
+    background-color: var(--tab-active);
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 6px 6px;
+    padding: 10px;
+    min-height: 250px;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tab-pane button {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    font-size: 0.9em;
+}
+
+.tab-pane button:hover {
+    background-color: var(--hover-bg);
+}
+
+/* Footer */
+.footer {
+    border-top: 1px solid var(--border-color);
+    margin-top: 20px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .menu a {
+    font-size: 0.9em;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: var(--bg-secondary);
+    color: var(--text-color);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-header h5 {
+    margin: 0;
+    color: #fff;
+}
+
+.modal-header .close {
+    color: var(--text-color);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.modal-header .close:hover {
+    color: var(--accent-color);
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.submitInput, .submitDescription {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.submitInput:focus, .submitDescription:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.submitDescription {
+    min-height: 100px;
+}
+
+.modal-body button {
+    width: auto;
+    padding: 10px 20px;
+    margin-top: 10px;
+    float: right;
+    margin-left: 10px;
+}
+
+.modal-body button[type="submit"] {
+    background-color: var(--run-button-bg);
+}
+
+.modal-body button[type="submit"]:hover {
+    background-color: var(--run-button-hover-bg);
+}
+
+.modal-body button:last-child {
+    background-color: var(--clear-button-bg);
+}
+
+.modal-body button:last-child:hover {
+    background-color: var(--clear-button-hover-bg);
+}
+
+/* Preloader */
+#preload {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.preload-box {
+    background-color: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.preload-box img {
+    filter: invert(1);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row" style="padding-top:15px;">
+  <div class="six columns">
+    <h3>পতাকা ইডিটর()  </h3>
+   
+  </div>
+ 
+</div>
+		<div class="row editorButtons">
+			<div class="seven columns">
+				
+				<div class="seven columns">
+         
+          <button  style="float:right;">অভ্রতে লিখুন বা ভাষা পরিবর্তন (Ctrl+M) </button> &nbsp;
+          
+         
+				</div>
+                
+			</div>
+            
+			<div class="five columns">
+				<button class="btn-clear" onclick="clearOutput()">আউটপুট মুছুন </button>
+			</div>
+		</div>
+        <button  class="btn-run" >ইংরেজিতে টাইপ করলে বাংলা হবে </button>
+        <button class="btn-run" onclick="runCode()" >রান</button>
+		<div class="row">
+			<div class="seven columns">
+        <textarea id="code" name="code" class="code-area" style="width:700px;"></textarea>
+			</div>
+			<div class="five columns">
+				<div id="output-area"><span style="color:gray"> আউটপুট</span></div><br>
+				
+					<ul class="tab-nav">
+					  <li>
+					    <a class="button active" href="#one">কিওয়্যার্ড-১</a>
+					  </li>
+					  <li>
+					    <a class="button" href="#two">কিওয়্যার্ড-২</a>
+					  </li>
+					  <li>
+					    <a class="button" href="#three">ফাংশন</a>
+					  </li>
+					</ul>
+					<div class="tab-content">
+					  <div class="tab-pane active" id="one">
+							<button>ধরি </button>
+							<button>যদি</button>
+							<button>নাহলে যদি</button>
+							<button>নাহলে</button>
+							<button>এবং </button>
+							<button>অথবা </button>
+							<button>সত্য</button>
+							<button>মিথ্যা</button>
+							<button>হ্যা</button>
+							<button>না</button>
+							<button>লুপ</button>
+							<button>চলবে;</button>
+							<button>থামো;</button>
+              <button>নাল</button>
+							<button>ফাংশন </button>
+							<button>রিটার্ন </button>
+							<button>অসীম</button>
+							<button>_ইন্ডেক্স</button>
+						</div>
+					  <div class="tab-pane" id="two">
+              <button>এর </button>
+							<button>বার</button>
+							<button>হয়</button>
+							<button>পায় </button>
+							<button>থাকে </button>
+							<button>হতে</button>
+							<button>থেকে</button>
+							<button>চেয়ে</button>
+              <button>মান </button>
+              <button>সমান</button>
+              <button>ছোট</button>
+              <button>বড়</button>
+              <button>কম</button>
+              <button>বেশি</button>
+              <button>দেখতে</button>
+              <button>শুনতে </button>
+              <button>বলতে </button>
+              <button>বুঝতে </button>
+            </div>
+					  <div class="tab-pane" id="three">
+							<button>দেখাও()</button>
+							<button>ইনপুট()</button>
+							<button>_টাইপ()</button>
+							<button>_বর্গমূল()</button>
+							<button>_নাম্বার()</button>
+							<button>_পূর্ণসংখ্যা()</button>
+							<button>_সময়()</button>
+							<button>_পাই</button>
+						</div>
+					</div>
+			</div>
+		</div>
+
+	</div><br><br><br>
+   
+    <div><center><a href ="https://github.com/ikrum/potaka" target="_blank"><h6><b>ক্রেডিট: মূল প্রজেক্ট দেখুন↗️</b></h6></a></center></div><br>
+
+  <script src="ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="statics/assets/js/editorLibs.min.5f57dfe1.js.pagespeed.jm.NI-Evwh_wg.js"></script>
+	<script src="statics/assets/js/editor.cab49987.js.pagespeed.jm.qJayRiOVKM.js"></script>
+  <script src="statics/assets/js/jquery.ime.bc2ce75a.js.pagespeed.jm.LY7w-L4xiG.js"></script>
+  <script type="text/javascript">$(document).ready(function(){loadSampleCode('getting_started');});</script>
+</body>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','../www.google-analytics.com/analytics.js','ga');ga('create','UA-50167420-4','auto');ga('send','pageview');</script>
+</html>
