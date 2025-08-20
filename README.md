@@ -4,7 +4,7 @@
 > ```My Potaka Editor Demo``` - [```Try it```](https://anisurrahmanju.github.io/Potaka-Editor/)
 
 
-## ```Main Project Developer```
+## ```Potaka Developer```
 > ```Email:ikrum.bd@gmail.com```
 
 > ```FB: http://facebook.com/ikrum```
