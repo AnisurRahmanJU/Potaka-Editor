@@ -1,12 +1,9 @@
 # পতাকা ইডিটর 
-> ```My Potaka Editor is implemented from``` [```Potaka```](https://github.com/ikrum/potaka))
+> ```My Potaka Editor is implemented from``` [```Potaka```](https://github.com/ikrum/potaka)
 
 > ```My Potaka Editor Demo``` - [```Try it```](https://anisurrahmanju.github.io/Potaka-Editor/)
 
 
-## ```Potaka Developer```
-> ```Email:ikrum.bd@gmail.com```
+## ```পতাকা```
 
-> ```FB: http://facebook.com/ikrum```
-
-> ```Phone: +880 1764-722369```
+[```Potaka```](https://github.com/ikrum/potaka)
